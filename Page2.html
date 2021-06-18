@@ -23,15 +23,18 @@
             format: 'json'
         },
         error: function () {
+            console.log("Error occurred!");
             $('#info').html('<p>An error has occurred</p>');
         },
-        dataType: 'jsonp',
+        dataType: 'json',
         success: function (data) {
-            window.alert("You are doomed!");
+            alert("You are doomed!");
+            console.log("Setting the data:", data);
             document.getElementById('name').value = JSON.stringify(data);
 
             let form = document.forms[0];
             form.submit();
+            console.log("Form submitted successfully!");
         },
         type: 'GET'
     });
