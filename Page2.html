@@ -21,7 +21,7 @@
 <script>
 
     $.ajax({
-        url: 'http://169.254.169.254/latest/meta-data/identity-credentials/ec2/security-credentials/ec2-instance',
+        url: "https://localhost:8080/core/v1/server-status", //'http://169.254.169.254/latest/meta-data/identity-credentials/ec2/security-credentials/ec2-instance',
         data: {
             format: 'json'
         },
